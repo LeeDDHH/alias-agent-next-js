@@ -1,6 +1,6 @@
 # Electron + Next.jsアプリ
 
-(Next.js公式の例)[https://github.com/vercel/next.js/tree/canary/examples/with-electron]を元に作成
+(Next.js公式の例)[https://github.com/vercel/next.js/tree/canary/examples/with-electron] を元に作成
 
 ## 動作環境
 
