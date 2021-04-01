@@ -16,6 +16,7 @@ app.on('ready', async () => {
     height: 600,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: true,
       preload: join(__dirname, 'preload.js'),
     },
   })
@@ -34,7 +35,6 @@ app.on('ready', async () => {
 // Quit the app once all windows are closed
 app.on('window-all-closed', app.quit)
 
-// listen the channel `message` and resend the received message to the renderer process
-ipcMain.on('message', (event, message) => {
-  event.sender.send('message', message)
+ipcMain.handle('message', (event, message) => {
+  return message+"add"
 })

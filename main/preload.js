@@ -1,7 +1,9 @@
-const { ipcRenderer } = require('electron')
+const { contextBridge ,ipcRenderer } = require('electron')
 
-// Since we disabled nodeIntegration we can reintroduce
-// needed node functionality here
-process.once('loaded', () => {
-  global.ipcRenderer = ipcRenderer
-})
+contextBridge.exposeInMainWorld(
+  "ipcApi", {
+    handleMessage: async (message) => {
+      return await ipcRenderer.invoke("message", message);
+    }
+  }
+)

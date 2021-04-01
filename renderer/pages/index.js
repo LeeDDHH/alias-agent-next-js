@@ -4,19 +4,19 @@ const Home = () => {
   const [input, setInput] = useState('')
   const [message, setMessage] = useState(null)
 
-  useEffect(() => {
-    const handleMessage = (event, message) => setMessage(message)
-    global.ipcRenderer.on('message', handleMessage)
+  // useEffect(() => {
+  //   const handleMessage = (event, message) => setMessage(message)
+  //   window.ipcApi.on('message', handleMessage)
 
-    return () => {
-      global.ipcRenderer.removeListener('message', handleMessage)
-    }
-  }, [])
+  //   return () => {
+  //     window.ipcRenderer.removeListener('message', handleMessage)
+  //   }
+  // }, [])
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    global.ipcRenderer.send('message', input)
-    setMessage(null)
+    const result = await window.ipcApi.handleMessage(input)
+    setMessage(result)
   }
 
   return (
