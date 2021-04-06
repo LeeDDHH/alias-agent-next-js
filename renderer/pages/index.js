@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Home = () => {
+const App = () => {
   const [input, setInput] = useState('')
   const [message, setMessage] = useState(null)
 
@@ -43,4 +43,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default App

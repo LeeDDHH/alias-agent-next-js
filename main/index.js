@@ -3,17 +3,24 @@ const { join } = require('path')
 const { format } = require('url')
 
 // Packages
-const { BrowserWindow, app, ipcMain } = require('electron')
+const { BrowserWindow, app, ipcMain, screen } = require('electron')
 const isDev = require('electron-is-dev')
 const prepareNext = require('electron-next')
 
 // Prepare the renderer once the app is ready
 app.on('ready', async () => {
   await prepareNext('./renderer')
+  const display = screen.getPrimaryDisplay();
 
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: display.bounds.width,
+    height: display.bounds.height,
+    transparent: true,
+    frame: false,
+    resizable: false,
+    movable: false,
+    alwaysOnTop: true,
+    fullscreenable: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
