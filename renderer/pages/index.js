@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 
+import styles from '../styles/App.module.css'
+
 const App = () => {
   const [input, setInput] = useState('')
   const [message, setMessage] = useState(null)
@@ -20,13 +22,12 @@ const App = () => {
   }
 
   return (
-    <div>
-      <h1>Hello Electron!</h1>
-
+    <div className={styles.height100}>
       {message && <p>{message}</p>}
 
-      <form onSubmit={handleSubmit}>
+      <form className={styles.height100} onSubmit={handleSubmit}>
         <input
+          className={`${styles.height100} ${styles.width100} ${styles.font}`}
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
