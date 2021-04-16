@@ -12,14 +12,23 @@ app.on('ready', async () => {
   await prepareNext('./renderer')
   const display = screen.getPrimaryDisplay();
 
+  const defaultWindowWidth = display.bounds.width / 5;
+  const defaultWindowHeight = 70;
+  const defaultCenterXPositionView = (display.bounds.width / 2) - (defaultWindowWidth / 2);
+  const defaultYPositionView = display.bounds.height / 10;
+
   const mainWindow = new BrowserWindow({
-    width: display.bounds.width,
-    height: display.bounds.height,
-    transparent: true,
+    x: defaultCenterXPositionView,
+    y: defaultYPositionView,
+    width: defaultWindowWidth,
+    height: defaultWindowHeight,
+    // width: display.bounds.width,
+    // height: display.bounds.height,
+    // transparent: true,
     frame: false,
     resizable: false,
-    movable: false,
-    alwaysOnTop: true,
+    // movable: false,
+    // alwaysOnTop: true,
     fullscreenable: false,
     webPreferences: {
       nodeIntegration: true,
