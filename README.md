@@ -55,3 +55,7 @@ yarn dist
 # command
 npm run build && electron-builder
 ```
+
+## エラー発生時に参考
+
+[macでElectronの開発時に「ネットワーク受信接続を許可しますか？」と聞かれたときの対応](https://gist.github.com/LeeDDHH/dd8482ffcdb058a708d5c5c8154815ca)
